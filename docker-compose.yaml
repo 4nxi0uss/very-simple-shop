@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+
+  # PHP Service
+  php:
+    image: edu_php
+    container_name: php
+    volumes:
+      - ./src/:/var/www/html/src/
+      # - ./vendor/:/var/www/html/vendor/
+      # - ./composer.json:/var/www/html/composer.json
+      - ./logs/php/:/var/log/
+      - ./php_docker/php/conf.g:/usr/local/etc/php/conf.d
+      - ./php_docker/logging.conf:/usr/local/etc/php-fpm.d/logging.conf
+
+  # Apache Service
+  apache:
+    image: edu_apache
+    container_name: apache
+    depends_on:
+      - php
+    ports:
+      - "80:80"
+    volumes:
+      - ./src/:/var/www/html/
+      - ./logs/apache/:/var/log/
+      # - "./src/index.php:/usr/local/apache2/htdocs/index.php"
+
+  # MariaDB Service
+  mariadb:
+    image: mariadb:10.11
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+    volumes:
+      - ./mysql/:/var/lib/mysql
+
+  # phpMyAdmin Service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: root
+      PMA_PASSWORD: root123
+    depends_on:
+      - mariadb

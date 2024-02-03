@@ -1,0 +1,9 @@
+{
+    "name": "work/edu",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {}
+}
