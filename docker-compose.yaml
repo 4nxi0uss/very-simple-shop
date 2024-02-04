@@ -1,6 +1,5 @@
 version: "3.8"
 services:
-
   # PHP Service
   php:
     image: edu_php
@@ -11,7 +10,7 @@ services:
       # - ./composer.json:/var/www/html/composer.json
       - ./logs/php/:/var/log/
       - ./php_docker/php/conf.g:/usr/local/etc/php/conf.d
-      - ./php_docker/logging.conf:/usr/local/etc/php-fpm.d/logging.conf
+      # - ./php_docker/logging.conf:/usr/local/etc/php-fpm.d/logging.conf
 
   # Apache Service
   apache:

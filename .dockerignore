@@ -1,0 +1,10 @@
+# comment 
+
+.git
+.gitignore
+readme.md
+logs/
+mysql/
+apache_docker/
+php_docker/
+docker-compose.yaml

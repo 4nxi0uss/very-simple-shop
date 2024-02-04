@@ -2,13 +2,20 @@
 
 namespace App\Classes;
 
-class Tracer {
+class Tracer
+{
 
-    public function tracer(array $data = []) {
-        echo('<pre>');
+    static public function trace(array $data = [])
+    {
+        echo ('<pre>');
         var_dump($data);
-        echo('</pre>');
+        echo ('</pre>');
     }
-    
 
+    static public function traceAndExit(array $data = [])
+    {
+        self::trace($data);
+
+        exit();
+    }
 }

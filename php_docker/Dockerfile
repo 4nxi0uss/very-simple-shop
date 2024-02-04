@@ -12,6 +12,9 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql gd zip intl xml
 # Cleaning APT cache
 RUN apt clean
 
-COPY ../ /var/www/html/
-
 ENV COMPOSER_ALLOW_SUPERUSER=1
+
+COPY ["." ,"/var/www/html/"]
+
+RUN composer install
+
