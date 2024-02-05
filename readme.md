@@ -7,3 +7,10 @@ building apache img
 
 1. cd ./apache_docker
 2. sudo docker build --no-cache -t edu_apache .
+
+
+run docker 
+docker-compose up -d
+
+stop docker 
+docker-compose down
