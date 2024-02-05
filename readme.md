@@ -18,3 +18,7 @@ stop docker
 
 1. cd ./ {project dir}
 2. docker-compose down
+
+run composer install
+1. cd ./
+2. docker exec -it php composer install
