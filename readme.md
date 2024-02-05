@@ -1,12 +1,12 @@
 building php img
 
 1. cd ./ {project dir}
-2. sudo docker build -t edu_php --file php_docker/Dockerfile .
+2. docker build --no-cache -t edu_php --file php_docker/Dockerfile .
 
 building apache img
 
 1. cd ./apache_docker
-2. sudo docker build --no-cache -t edu_apache .
+2. docker build --no-cache -t edu_apache .
 
 
 run docker 
