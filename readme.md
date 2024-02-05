@@ -1,6 +1,6 @@
 building php img
 
-1. cd ./ {root dir}
+1. cd ./ {project dir}
 2. sudo docker build -t edu_php --file php_docker/Dockerfile .
 
 building apache img
@@ -10,7 +10,11 @@ building apache img
 
 
 run docker 
-docker-compose up -d
 
-stop docker 
-docker-compose down
+1. cd ./ {project dir}
+2. docker-compose up -d
+
+stop docker
+
+1. cd ./ {project dir}
+2. docker-compose down
